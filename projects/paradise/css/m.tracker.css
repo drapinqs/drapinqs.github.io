@@ -1,0 +1,527 @@
+/* TEST CODE */
+body {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: #CFC5B3;
+}
+
+canvas {
+    background-color: #fff;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.tracker {
+    width: 70% !important;
+    margin: 0 auto;
+    font: normal 16px/1.333333333 "One Dot Condensed Bold", "Arial Narrow", Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    top: 3.75em;
+    pointer-events: none;
+}
+
+.tracker__lookup .tracker {
+    background: transparent;
+    box-shadow: none;
+}
+
+.tracker ol,
+.tracker ul,
+.tracker p {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tracker .status {
+    height: 150px;
+    width: 92.9411765%;
+    margin: 0 auto;
+    clear: both;
+    position: relative;
+}
+
+.tracker .stageLabels {
+    width: 88.6075949%; /* 700px */
+    height: 6em;
+    margin: 0 5.6962025% 0 1.7142857%; /* 0 45px 0 19px */
+    position: absolute;
+    top: 1em;
+    z-index: 3;
+    text-align: center;
+    -ms-transform: translateX(4.7142857%);
+    -webkit-transform: translateX(4.7142857%);
+    transform: translateX(4.7142857%);
+}
+
+.tracker .stageLabel {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 10.4285714%; /* 73px / 700px */
+    height: 6em;
+    margin-right: 1.4285714%; /* 10px / 700px */
+    position: relative;
+    vertical-align: top;
+}
+
+.tracker .stageLabel .labelText {
+    text-transform: uppercase;
+    font-size: 0.625em;
+    text-align: center;
+    text-shadow: 1px 1px 2px #484848;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.tracker .stageLabel[data-stagenumber="3"] {
+    width: 18.4285714%; /* 129px / 700px */
+}
+
+.tracker .stageLabel[data-stagenumber="5"] {
+    width: 30%; /* 210px / 700px */
+}
+
+.tracker .stageLabel .light {
+    width: 100%;
+    height: 6px;
+    position: absolute;
+    top: 0.9375em;
+    left: 0;
+    text-indent: -9999px;
+    background: #fff;
+    -ms-transform: skew(-45deg, 0deg);
+    -webkit-transform: skew(-45deg, 0deg);
+    transform: skew(-45deg, 0deg);
+    box-shadow: inset 1px 1px #888;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.tracker .stageLabel::after {
+    content: attr(data-stagenumber-text);
+    width: 100%;
+    position: absolute;
+    top: 1.625em;
+    left: 0;
+    text-align: center;
+    font-size: 1.625em; /* 26px 16px */
+    text-shadow: 1px 1px 1px rgba(221, 238, 255, 0.2), 0 0 0 rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(221, 238, 255, 0.2);
+    color: #fff;
+    color: rgba(0, 0, 0, 0.1);
+    -ms-transform: translateX(-40%);
+    -webkit-transform: translateX(-40%);
+    transform: translateX(-40%);
+}
+
+.tracker .stageLabel[data-stagenumber="3"]::after {
+    -ms-transform: translateX(-24%);
+    -webkit-transform: translateX(-24%);
+    transform: translateX(-24%);
+}
+
+.tracker .stageLabel[data-stagenumber="5"]::after {
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.tracker .statusBarBase,
+.tracker .statusBar {
+    width: 88.6075949%;
+    height: 58px;
+    margin: 0 5.6962025%;
+    position: absolute;
+    top: 46px;
+    left: 0;
+}
+
+.tracker .statusBarBase {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6bc0eb", endColorstr="#005b89", GradientType=0);
+    border-radius: 28px;
+    z-index: 1;
+    background: #6bc0eb;
+    box-shadow: 2px 2px 1px rgba(255, 255, 255, 0.6), -2px -2px 1px #363636, 3px 3px 13px rgba(0, 0, 0, 0.8), inset 13px 13px 18px rgba(34, 108, 155, 0.8), inset -13px -13px 18px rgba(34, 108, 155, 0.8);
+}
+
+.tracker .statusBar {
+    z-index: 1;
+}
+
+.tracker .statusBar ol {
+    overflow: hidden;
+    height: 100%;
+    border-radius: 28px;
+    white-space: nowrap;
+    -webkit-mask-box-image: url("../images/bar-mask.svg");
+}
+
+.tracker .statusBar::after {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eaeaea", endColorstr="#6bc0eb", GradientType=0);
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 28px;
+    box-shadow: inset 0 -4px 4px rgba(0, 0, 0, 0.8), inset 0 7px 1px rgba(255, 255, 255, 0.6);
+}
+
+.tracker .statusBar .stage {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 100%;
+    margin-right: -4px;
+    border-right: 4px solid #fff;
+    border-right: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 5px -4px 4px rgba(34, 108, 155, 0.6);
+    -ms-transform: skew(-45deg, 0deg);
+    -webkit-transform: skew(-45deg, 0deg);
+    transform: skew(-45deg, 0deg);
+}
+
+.tracker .statusBar .stage:last-child {
+    border-right-width: 0;
+    margin-right: 0;
+}
+
+.tracker .statusBar .stage[data-stagenumber="1"] {
+    width: 13.5714286%; /* 95px / 700px */
+    margin-left: -1.7142857%; /* 12px / 700px */
+}
+
+.tracker .statusBar .stage[data-stagenumber="2"],
+.tracker .statusBar .stage[data-stagenumber="4"] {
+    width: 11.8571429%; /* 83px / 700px */
+}
+
+.tracker .statusBar .stage[data-stagenumber="3"] {
+    width: 20.1428571%; /* 141px / 700px */
+}
+
+.tracker .statusBar .stage[data-stagenumber="5"] {
+    width: 44.2857143%; /* 310px / 700px */
+}
+
+.tracker .statusBar .stage div {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-indent: -1000em;
+}
+
+.tracker .patentText {
+    width: 20em;
+    position: absolute;
+    top: 110px;
+    right: 8.8607595%;
+    text-transform: uppercase;
+    font-size: 0.5em;
+    text-align: right;
+    color: #fff;
+    opacity: 1;
+}
+
+.tracker .statusText {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    text-align: center;
+    color: #fff;
+}
+
+.tracker .statusText .leftStatus {
+    text-transform: uppercase;
+}
+
+.tracker .statusText .rightStatus {
+    font-size: 0.75em;
+}
+
+.tracker .errorOverlay {
+    display: none;
+    padding-top: 8em;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    text-align: center;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#bfffffff", endColorstr="#bfffffff", GradientType=0);
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #333;
+}
+
+.tracker.error .errorOverlay {
+    display: block;
+}
+
+.tracker[data-currentstage="1"] .statusBar .stage[data-stagenumber="1"],
+.tracker[data-currentstage="2"] .statusBar .stage[data-stagenumber="1"],
+.tracker[data-currentstage="2"] .statusBar .stage[data-stagenumber="2"],
+.tracker[data-currentstage="3"] .statusBar .stage[data-stagenumber="1"],
+.tracker[data-currentstage="3"] .statusBar .stage[data-stagenumber="2"],
+.tracker[data-currentstage="3"] .statusBar .stage[data-stagenumber="3"],
+.tracker[data-currentstage="4"] .statusBar .stage[data-stagenumber="1"],
+.tracker[data-currentstage="4"] .statusBar .stage[data-stagenumber="2"],
+.tracker[data-currentstage="4"] .statusBar .stage[data-stagenumber="3"],
+.tracker[data-currentstage="4"] .statusBar .stage[data-stagenumber="4"],
+.tracker[data-currentstage="5"] .statusBar .stage[data-stagenumber="1"],
+.tracker[data-currentstage="5"] .statusBar .stage[data-stagenumber="2"],
+.tracker[data-currentstage="5"] .statusBar .stage[data-stagenumber="3"],
+.tracker[data-currentstage="5"] .statusBar .stage[data-stagenumber="4"],
+.tracker[data-currentstage="5"] .statusBar .stage[data-stagenumber="5"] {
+    border-right-color: #f18d5a;
+    border-right-color: rgba(241, 141, 90, 0.75);
+    box-shadow: 3px 3px 3px rgba(34, 108, 155, 0.6), 3px 3px 5px #f00;
+}
+
+.tracker[data-currentstage="1"] .statusBar .stage[data-stagenumber="1"] div,
+.tracker[data-currentstage="2"] .statusBar .stage[data-stagenumber="1"] div,
+.tracker[data-currentstage="2"] .statusBar .stage[data-stagenumber="2"] div,
+.tracker[data-currentstage="3"] .statusBar .stage[data-stagenumber="1"] div,
+.tracker[data-currentstage="3"] .statusBar .stage[data-stagenumber="2"] div,
+.tracker[data-currentstage="3"] .statusBar .stage[data-stagenumber="3"] div,
+.tracker[data-currentstage="4"] .statusBar .stage[data-stagenumber="1"] div,
+.tracker[data-currentstage="4"] .statusBar .stage[data-stagenumber="2"] div,
+.tracker[data-currentstage="4"] .statusBar .stage[data-stagenumber="3"] div,
+.tracker[data-currentstage="4"] .statusBar .stage[data-stagenumber="4"] div,
+.tracker[data-currentstage="5"] .statusBar .stage[data-stagenumber="1"] div,
+.tracker[data-currentstage="5"] .statusBar .stage[data-stagenumber="2"] div,
+.tracker[data-currentstage="5"] .statusBar .stage[data-stagenumber="3"] div,
+.tracker[data-currentstage="5"] .statusBar .stage[data-stagenumber="4"] div,
+.tracker[data-currentstage="5"] .statusBar .stage[data-stagenumber="5"] div {
+    background-color: #ff4f00;
+    box-shadow: inset 10px 10px 18px #f00, inset -10px -10px 18px #f00, inset 15px 7px 12px #000;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff4f00", endColorstr="#cf0404", GradientType=0);
+}
+
+.tracker[data-currentstage="1"] .stageLabel[data-stagenumber="1"] .light,
+.tracker[data-currentstage="2"] .stageLabel[data-stagenumber="1"] .light,
+.tracker[data-currentstage="2"][data-stagestatus="complete"] .stageLabel[data-stagenumber="2"] .light,
+.tracker[data-currentstage="3"] .stageLabel[data-stagenumber="1"] .light,
+.tracker[data-currentstage="3"] .stageLabel[data-stagenumber="2"] .light,
+.tracker[data-currentstage="3"][data-stagestatus="complete"] .stageLabel[data-stagenumber="3"] .light,
+.tracker[data-currentstage="4"] .stageLabel[data-stagenumber="1"] .light,
+.tracker[data-currentstage="4"] .stageLabel[data-stagenumber="2"] .light,
+.tracker[data-currentstage="4"] .stageLabel[data-stagenumber="3"] .light,
+.tracker[data-currentstage="4"][data-stagestatus="complete"] .stageLabel[data-stagenumber="4"] .light,
+.tracker[data-currentstage="5"] .stageLabel[data-stagenumber="1"] .light,
+.tracker[data-currentstage="5"] .stageLabel[data-stagenumber="2"] .light,
+.tracker[data-currentstage="5"] .stageLabel[data-stagenumber="3"] .light,
+.tracker[data-currentstage="5"] .stageLabel[data-stagenumber="4"] .light,
+.tracker[data-currentstage="5"][data-stagestatus="complete"] .stageLabel[data-stagenumber="5"] .light {
+    background: #6f0;
+    box-shadow: 0 0 5px rgba(102, 255, 0, 0.8), inset -1px -1px #fff;
+}
+
+.tracker[data-currentstage="1"][data-stagestatus="pending"] .statusBar .stage[data-stagenumber="1"] div,
+.tracker[data-currentstage="2"][data-stagestatus="pending"] .statusBar .stage[data-stagenumber="2"] div,
+.tracker[data-currentstage="3"][data-stagestatus="pending"] .statusBar .stage[data-stagenumber="3"] div,
+.tracker[data-currentstage="4"][data-stagestatus="pending"] .statusBar .stage[data-stagenumber="4"] div,
+.tracker[data-currentstage="5"][data-stagestatus="pending"] .statusBar .stage[data-stagenumber="5"] div {
+    background-color: #f90;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-animation: pulse 2s ease-in-out infinite;
+    animation: pulse 2s ease-in-out infinite;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#edaa2f", endColorstr="#ed4f07", GradientType=0);
+}
+
+.tracker .statusBarBase:not([dpz]),
+.tracker .statusBar:not([dpz])::after,
+.tracker .statusBar .stage div:not([dpz]) {
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled="false") !important;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.25;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.25;
+    }
+}
+
+#orderConfirmationPage .tracker {
+    margin-top: 0.75em;
+}
+
+#dpzTracker {
+    position: relative;
+    max-width: none;
+    left: -34px;
+}
+
+#orderConfirmationPage #dpzTracker {
+    left: -25px;
+}
+
+#theme__canvas canvas {
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 640px) {
+    .tracker {
+        padding-bottom: 1.5em;
+    }
+
+    .tracker .header {
+        padding: 1em;
+    }
+
+    .tracker .header h1 {
+        width: 100%;
+        float: none;
+        padding-left: 0;
+        margin-bottom: 0.1875em;
+        font-size: 2em;
+        text-align: center;
+        text-shadow: 1px 1px 1px #def, 0 0 0 rgba(0, 0, 0, 0.5), 1px 1px 1px #def;
+    }
+
+    .tracker .header h3 {
+        width: 100%;
+        float: none;
+        text-align: center;
+        padding: 0;
+    }
+
+    .tracker .stageLabel::after {
+        display: none;
+    }
+
+    .tracker .status {
+        height: auto;
+    }
+
+    .tracker .stageLabels {
+        display: none;
+    }
+
+    .tracker .statusBarBase,
+    .tracker .statusBar {
+        top: 14px;
+        margin: 0 3%;
+        width: 94%;
+    }
+
+    .tracker .statusText {
+        position: static;
+        line-height: 1;
+        padding: 90px 0 12px;
+    }
+
+    .tracker .patentText {
+        color: #000;
+        top: auto;
+        bottom: -2em;
+        right: 1em;
+    }
+
+    .tracker .statusBar .stage[data-stagenumber="1"] {
+        width: 16.571429%;
+        margin-left: -4.714286%;
+    }
+
+    .tracker[data-currentstage="1"] .statusBar .stage[data-stagenumber="1"] div,
+    .tracker[data-currentstage="2"] .statusBar .stage[data-stagenumber="1"] div,
+    .tracker[data-currentstage="2"] .statusBar .stage[data-stagenumber="2"] div,
+    .tracker[data-currentstage="3"] .statusBar .stage[data-stagenumber="1"] div,
+    .tracker[data-currentstage="3"] .statusBar .stage[data-stagenumber="2"] div,
+    .tracker[data-currentstage="3"] .statusBar .stage[data-stagenumber="3"] div,
+    .tracker[data-currentstage="4"] .statusBar .stage[data-stagenumber="1"] div,
+    .tracker[data-currentstage="4"] .statusBar .stage[data-stagenumber="2"] div,
+    .tracker[data-currentstage="4"] .statusBar .stage[data-stagenumber="3"] div,
+    .tracker[data-currentstage="4"] .statusBar .stage[data-stagenumber="4"] div,
+    .tracker[data-currentstage="5"] .statusBar .stage[data-stagenumber="1"] div,
+    .tracker[data-currentstage="5"] .statusBar .stage[data-stagenumber="2"] div,
+    .tracker[data-currentstage="5"] .statusBar .stage[data-stagenumber="3"] div,
+    .tracker[data-currentstage="5"] .statusBar .stage[data-stagenumber="4"] div,
+    .tracker[data-currentstage="5"] .statusBar .stage[data-stagenumber="5"] div {
+        box-shadow: inset 10px 10px 18px rgba(255, 0, 0, 0.35), inset -10px -10px 18px rgba(255, 0, 0, 0.35), inset 15px 7px 12px rgba(0, 0, 0, 0.35);
+    }
+}
+
+html[dir="rtl"] .tracker .stageLabels {
+    margin: 0 0 0 5.6962025%;
+    -ms-transform: translateX(-4.7142857%);
+    -webkit-transform: translateX(-4.7142857%);
+    transform: translateX(-4.7142857%);
+}
+
+html[dir="rtl"] .tracker .stageLabel .light {
+    -ms-transform: skew(45deg, 0deg);
+    -webkit-transform: skew(45deg, 0deg);
+    transform: skew(45deg, 0deg);
+}
+
+html[dir="rtl"] .tracker .stageLabel::after {
+    left: 0;
+    -ms-transform: translateX(40%);
+    -webkit-transform: translateX(40%);
+    transform: translateX(40%);
+}
+
+html[dir="rtl"] .tracker .stageLabel[data-stagenumber="3"]::after {
+    -ms-transform: translateX(24%);
+    -webkit-transform: translateX(24%);
+    transform: translateX(24%);
+}
+
+html[dir="rtl"] .tracker .statusBar .stage {
+    -ms-transform: skew(45deg, 0deg);
+    -webkit-transform: skew(45deg, 0deg);
+    transform: skew(45deg, 0deg);
+}
+
+html[dir="rtl"] .tracker .statusBar .stage[data-stagenumber="1"] {
+    margin-left: 0;
+    margin-right: -1.7142857%;
+}
+
+/* Misc. */
+#orderConfirmationPage .tracker {
+    margin-top: 0.75em;
+}
+
+#dpzTracker {
+    position: relative;
+    max-width: none;
+    left: -34px;
+}
+
+#orderConfirmationPage #dpzTracker {
+    left: -25px;
+}
+
+#theme__canvas canvas {
+    margin: 0 auto;
+}

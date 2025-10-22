@@ -47,14 +47,16 @@
         <span class="hover" style="font-family: derk; font-size: 0.6em;">⛧ click to view ⛧</span>
       </label>
     </div>
-    <audio loop="" preload="auto" id="audio">
+    <audio loop preload="auto" id="audio">
       <source src="sng.mp3" type="audio/mp3">
     </audio>
+
     <section class="fullscreen text-content">
       <div class="intro">
         <img class="intrologo" src="drapinqs.gif">
         <i class="introtxt"></i>
       </div>
+
       <div class="intro2">
         <section class="container">
           <div class="card">
@@ -62,64 +64,80 @@
               <div class="user-img"></div>
               <h1>Drapinqs</h1>
               <p class="subheading">he/him</p>
-              <a href="#" onclick="openProjectsPopup()">Projects</a>
-              <a href="#" onclick="openDownloadsPopup()">Downloads</a>
-              <a href="#" onclick="openLinksPopup()">Links</a>
-              <a style="cursor: pointer;" id="root"><span>Confetti</span></a>
+
+              <!-- ✅ Fixed button group -->
+              <div class="button-group">
+                <a href="#" onclick="openProjectsPopup()">Projects</a>
+                <a href="#" onclick="openDownloadsPopup()">Downloads</a>
+                <a href="#" onclick="openLinksPopup()">Links</a>
+                <a style="cursor: pointer; position: relative; top:-8px; box-shadow: none;" id="root"><span>Confetti</span></a>
+              </div>
             </div>
           </div>
         </section>
       </div>
+
       <div class="intro3">
-        <span>
-          <strong>^w^</strong>
-        </span>
+        <span><strong>^w^</strong></span>
       </div>
     </section>
-    <div id="projectsPopup" class="popup">
-      <div class="popup-content">
-        <span style="padding-right: 12px !important; color: white; font-weight: bolder; border: white 1px solid; padding: 10px; border-radius: 15px; padding-left: 12px;" class="close" onclick="closePopup('projectsPopup')">✖</span>
-        <h2>Public Projects</h2>
-        <div class="front">
-          <ul style="list-style:none;line-height: 4;">
-            <li><a href="https://raw.githubusercontent.com/Drapinqs/drapinqs.github.io/main/downloads/Customizable%20New%20Tab%20Extension.zip">CustomNewTabExt</a></li>
-            <li><a href="https://github.com/Drapinqs/drapinqs.github.io/raw/main/downloads/Viruses.zip">Viruses</a></li>
-            <li><a href="https://github.com/Drapinqs/drapinqs.github.io/raw/main/downloads/CMDScripts.zip">CMD Scripts</a></li>
-            <li><a href="https://drapinqs.github.io/games/cps.html">ClickSpeed</a></li>
-            <li><a href="https://drapinqs.github.io/games/boxaim.html">BoxAim</a></li>
-          </ul>
-        </div>
-      </div>
+<!-- PROJECTS POPUP -->
+<div id="projectsPopup" class="popup">
+  <div class="popup-content">
+    <span
+      style="padding-right: 12px; color: white; font-weight: bolder; border: white 1px solid; padding: 10px; border-radius: 15px; padding-left: 12px;"
+      class="close"
+      onclick="closePopup('projectsPopup')">✖</span>
+    <h2>Public Projects</h2>
+
+    <div class="projects-buttons">
+      <a class="PopupsBtn" href="https://raw.githubusercontent.com/Drapinqs/drapinqs.github.io/main/downloads/Customizable%20New%20Tab%20Extension.zip" target="_blank">CustomNewTabExt</a>
+      <a class="PopupsBtn" href="https://github.com/Drapinqs/drapinqs.github.io/raw/main/downloads/Viruses.zip" target="_blank">Viruses</a>
+      <a class="PopupsBtn" href="https://github.com/Drapinqs/drapinqs.github.io/raw/main/downloads/CMDScripts.zip" target="_blank">CMD Scripts</a>
+      <a class="PopupsBtn" href="https://drapinqs.github.io/games/cps.html" target="_blank">ClickSpeed</a>
+      <a class="PopupsBtn" href="https://drapinqs.github.io/games/boxaim.html" target="_blank">BoxAim</a>
+      <a class="PopupsBtn" href="https://drapinqs.github.io/projects/paradise/index.html" target="_blank">Paradise</a>
     </div>
-    <div id="downloadsPopup" class="popup">
-      <div class="popup-content">
-        <span style="padding-right: 12px !important; color: white; font-weight: bolder; border: white 1px solid; padding: 10px; border-radius: 15px; padding-left: 12px;" class="close" onclick="closePopup('downloadsPopup')">✖</span>
-        <h1>Downloads</h1>
-        <p class="unstable-warning">* marked fields are unstable</p>
-        <div class="front">
-          <ul style="list-style:none;line-height: 4;">
-            <li><a href="https://github.com/Drapinqs/drapinqs.github.io/raw/main/downloads/Bridging%20Practice%201.8.zip">1.8.9 Bridging Map</a></li>
-            <li><a class="unstable" href="https://github.com/Drapinqs/drapinqs.github.io/raw/main/downloads/WindowsOptimizationPack.zip">Windows Optimization Pack</a></li>
-            <li><a class="unstable" href="https://raw.githubusercontent.com/Drapinqs/drapinqs.github.io/main/downloads/YTTheme.zip">YouTube #000 Theme</a></li>
-            <li><a href="https://github.com/Drapinqs/drapinqs.github.io/raw/main/downloads/RGB%20Cursor.zip">Windows RGB Cursor</a></li>
-          </ul>
-        </div>
-      </div>
+  </div>
+</div>
+
+<!-- DOWNLOADS POPUP -->
+<div id="downloadsPopup" class="popup">
+  <div class="popup-content">
+    <span
+      style="padding-right: 12px; color: white; font-weight: bolder; border: white 1px solid; padding: 10px; border-radius: 15px; padding-left: 12px;"
+      class="close"
+      onclick="closePopup('downloadsPopup')">✖</span>
+    <h1>Downloads</h1>
+    <p class="unstable-warning">* marked fields are unstable</p>
+
+    <div class="downloads-buttons">
+      <a class="PopupsBtn" href="https://github.com/Drapinqs/drapinqs.github.io/raw/main/downloads/Bridging%20Practice%201.8.zip" target="_blank">1.8.9 Bridging Map</a>
+      <a class="PopupsBtn unstable" href="https://github.com/Drapinqs/drapinqs.github.io/raw/main/downloads/WindowsOptimizationPack.zip" target="_blank">Windows Optimization Pack</a>
+      <a class="PopupsBtn unstable" href="https://raw.githubusercontent.com/Drapinqs/drapinqs.github.io/main/downloads/YTTheme.zip" target="_blank">YouTube #000 Theme</a>
+      <a class="PopupsBtn" href="https://github.com/Drapinqs/drapinqs.github.io/raw/main/downloads/RGB%20Cursor.zip" target="_blank">Windows RGB Cursor</a>
     </div>
-    <div id="linksPopup" class="popup">
-      <div class="popup-content">
-        <span style="padding-right: 12px !important; color: white; font-weight: bolder; border: white 1px solid; padding: 10px; border-radius: 15px; padding-left: 12px;" class="close" onclick="closePopup('linksPopup')">✖</span>
-        <h2>Links</h2>
-        <div class="front">
-          <ul style="list-style:none;line-height: 4;">
-            <li><a href="https://youtube.com/drapinqs" target="_blank">YouTube</a></li>
-            <li><a href="https://discord.com/users/221500032845611010" target="_blank">Discord</a></li>
-            <li><a href="https://github.com/drapinqs" target="_blank">Github</a></li>
-          </ul>
-        </div>
-      </div>
+  </div>
+</div>
+
+<!-- LINKS POPUP -->
+<div id="linksPopup" class="popup">
+  <div class="popup-content">
+    <span
+      style="padding-right: 12px; color: white; font-weight: bolder; border: white 1px solid; padding: 10px; border-radius: 15px; padding-left: 12px;"
+      class="close"
+      onclick="closePopup('linksPopup')">✖</span>
+    <h2>Links</h2>
+
+    <div class="links-buttons">
+      <a class="PopupsBtn" href="https://youtube.com/drapinqs" target="_blank">YouTube</a>
+      <a class="PopupsBtn" href="https://discord.com/users/221500032845611010" target="_blank">Discord</a>
+      <a class="PopupsBtn" href="https://github.com/drapinqs" target="_blank">Github</a>
     </div>
-  </main>
+  </div>
+</div>
+
+  <!-- CONFETTI SCRIPT -->
   <script id="rendered-js" type="module">
     import React from "https://esm.run/react@18";
     import { createRoot } from "https://esm.run/react-dom@18/client";
@@ -141,34 +159,34 @@
 
     createRoot(document.getElementById("root")).render(React.createElement(App, null));
   </script>
+
+  <!-- MAIN SCRIPT -->
   <script>
-    function openProjectsPopup() {
-      openPopup('projectsPopup');
-    }
-    function openDownloadsPopup() {
-      openPopup('downloadsPopup');
-    }
-    function openLinksPopup() {
-      openPopup('linksPopup');
-    }
+    function openProjectsPopup() { openPopup('projectsPopup'); }
+    function openDownloadsPopup() { openPopup('downloadsPopup'); }
+    function openLinksPopup() { openPopup('linksPopup'); }
+
     function openPopup(popupId) {
       var popup = document.getElementById(popupId);
       popup.style.display = 'block';
-      setTimeout(function () {
-        popup.style.opacity = '1';
-      }, 10);
+      setTimeout(function () { popup.style.opacity = '1'; }, 10);
     }
+
     function closePopup(popupId) {
       var popup = document.getElementById(popupId);
       popup.style.opacity = '0';
-      setTimeout(function () {
-        popup.style.display = 'none';
-      }, 300);
+      setTimeout(function () { popup.style.display = 'none'; }, 300);
     }
+
     function audioPlay() {
       var audio = document.getElementById("audio");
       audio.volume = 0.7;
       audio.play();
+    }
+
+    function videoPlay() {
+      var video = document.getElementById("myVideo");
+      video.play();
     }
   </script>
 </body>

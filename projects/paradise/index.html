@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Paradise Tracker Theme</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/m.tracker.css">
+  <link rel="stylesheet" href="./css/fonts.css">
+  <script src="./js/phaser.min.js.download"></script>
+  <script src="./js/jquery-3.1.1.min.js.download"></script>
+  <script src="./js/shims.js.download"></script>
+  <script src="./js/paradise.js.download"></script>
+  <script>
+    // The following will run 1000ms (1s) after page load
+    window.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        playAudio = true;
+        animationQueue.push("2_pending");
+        animationQueue.push("3_pending");
+        animationQueue.push("4_pending");
+        animationQueue.push("5_pending");
+        if (typeof checkQueue === "function") {
+          checkQueue();
+        }
+      }, 1000);
+    });
+  </script>
+</head>
+<body>
+  <div id="theme__canvas"><!-- Theme gets pumped into this div --></div>
+  <h1 id="theme__name" class="theme-name"></h1>
+  <div class="tracker" id="intl-tracker" style="
+    position: relative;
+    top: -200px;
+    width: 70%;
+">
+    <div class="status">
+      <ol class="stageLabels">
+        <li id="stageLabel1" class="stageLabel" data-stagenumber="1">
+          <div class="labelText"></div>
+          <div class="light"></div>
+        </li>
+        <li id="stageLabel2" class="stageLabel" data-stagenumber="2">
+          <div class="labelText"></div>
+          <div class="light"></div>
+        </li>
+        <li id="stageLabel3" class="stageLabel" data-stagenumber="3">
+          <div class="labelText"></div>
+          <div class="light"></div>
+        </li>
+        <li id="stageLabel4" class="stageLabel" data-stagenumber="4">
+          <div class="labelText"></div>
+          <div class="light"></div>
+        </li>
+        <li id="stageLabel5" class="stageLabel" data-stagenumber="5">
+          <div class="labelText"></div>
+          <div class="light"></div>
+        </li>
+      </ol>
+      <div id="statusBarBase" class="statusBarBase"></div>
+      <div id="statusBar" class="statusBar">
+        <ol>
+          <li id="stage1" class="stage" data-stagenumber="1"><div>1</div></li>
+          <li id="stage2" class="stage" data-stagenumber="2"><div>2</div></li>
+          <li id="stage3" class="stage" data-stagenumber="3"><div>3</div></li>
+          <li id="stage4" class="stage" data-stagenumber="4"><div>4</div></li>
+          <li id="stage5" class="stage" data-stagenumber="5"><div>5</div></li>
+        </ol>
+      </div>
+      <p id="patentText" class="patentText">U.S. Patent #10,262,281</p>
+      <p class="statusText">
+        <span id="leftStatus" class="leftStatus"></span>
+        <span id="rightStatus" class="rightStatus"></span>
+      </p>
+    </div>
+    <div id="errorOverlay" class="errorOverlay"></div>
+  </div>
+</body>
+
+</html>

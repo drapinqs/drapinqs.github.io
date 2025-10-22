@@ -1,0 +1,97 @@
+@font-face {
+    font-family: "One Dot Condensed";
+    src: url("../fonts/OneDotCd.woff2") format("woff2"),
+        url("../fonts/OneDotCd.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "One Dot Condensed Bold";
+    src: url("../fonts/OneDotCd-Bold.woff2") format("woff2"),
+        url("../fonts/OneDotCd-Bold.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "One Dot Condensed Light";
+    src: url("../fonts/OneDotCd-Lt.woff2") format("woff2"),
+        url("../fonts/OneDotCd-Lt.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: PizzaPressFill;
+    src: url("../fonts/PizzaPress-Fill.eot");
+}
+@font-face {
+    font-family: PizzaPressFill;
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/PizzaPress-Fill.woff") format("woff"),
+        url("../fonts/PizzaPress-Fill.svg#dpz") format("svg");
+}
+
+@font-face {
+    font-family: PizzaPressAntique;
+    src: url("../fonts/PizzaPress-Antique.eot");
+}
+@font-face {
+    font-family: PizzaPressAntique;
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/PizzaPress-Antique.woff") format("woff"),
+        url("../fonts/PizzaPress-Antique.svg#dpz") format("svg");
+}
+
+@font-face {
+    font-family: PizzaPressInline;
+    src: url("../fonts/PizzaPress-Inline.eot");
+}
+@font-face {
+    font-family: PizzaPressInline;
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/PizzaPress-Inline.woff") format("woff"),
+        url("../fonts/PizzaPress-Inline.svg#dpz") format("svg");
+}
+
+@font-face {
+    font-family: PizzaPressOrnaments;
+    src: url("../fonts/PizzaPress-Ornaments.eot");
+}
+@font-face {
+    font-family: PizzaPressOrnaments;
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/PizzaPress-Ornaments.woff") format("woff"),
+        url("../fonts/PizzaPress-Ornaments.svg#dpz") format("svg");
+}
+
+@font-face {
+    font-family: dominosIcons;
+    src: url("../fonts/dominos-icons.eot");
+}
+@font-face {
+    font-family: dominosIcons;
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/dominos-icons.woff") format("woff"),
+        url("../fonts/dominos-icons.svg#dpz") format("svg");
+}
+
+@font-face {
+    font-family: PizzaPressFill-AR;
+    src: url("../fonts/pizzapressar-fill-webfont.eot");
+}
+
+@font-face {
+    font-family: PizzaPressFill-AR;
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/pizzapressar-fill-webfont.woff") format("woff"),
+        url("../fonts/pizzapressar-fill-webfont.svg#pizza_press_arfill")
+            format("svg");
+}
